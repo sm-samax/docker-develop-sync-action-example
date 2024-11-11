@@ -1,0 +1,13 @@
+services:
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        restart: always
+        ports:
+        - 80:80
+        - 443:443
+        develop:
+            watch:
+            - path: ./nginx/www
+              action: sync
+              target: /etc/nginx/html
